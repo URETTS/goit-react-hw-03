@@ -1,5 +1,4 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useId } from "react";
 import * as Yup from "yup";
 import styles from "./ContactForm.module.css";
 
@@ -15,34 +14,25 @@ const initialValues = {
   number: "",
 };
 
-const ContactForm = () => {
-  const nameFieldId = useId();
-  const numberFieldId = useId();
-
+const ContactForm = ({ onAddContact }) => {
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    onAddContact(values);
     actions.resetForm();
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={ContactSchema}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={ContactSchema}>
       <Form className={styles.contactForm}>
         <div>
-          <label htmlFor={nameFieldId}>Name</label>
-          <Field type="text" name="name" id={nameFieldId} />
+          <label htmlFor="name">Name</label>
+          <Field type="text" name="name" id="name" />
           <ErrorMessage name="name" component="span" />
         </div>
-
         <div>
-          <label htmlFor={numberFieldId}>Number</label>
-          <Field type="text" name="number" id={numberFieldId} />
+          <label htmlFor="number">Number</label>
+          <Field type="text" name="number" id="number" />
           <ErrorMessage name="number" component="span" />
         </div>
-
         <button type="submit">Add contact</button>
       </Form>
     </Formik>
