@@ -4,8 +4,9 @@ import styles from "./ContactForm.module.css";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
-  number: Yup.string()
-    .matches(/^\+?\d{10,15}$/, "Must be a valid phone number!")
+ number: Yup.string()
+      .matches(/^\+?\d{1,4}(-?\d{1,4}){1,3}$/, "Must be a valid phone number!")
+    .max(15, "Must be no more than 15 characters")
     .required("Required"),
 });
 
