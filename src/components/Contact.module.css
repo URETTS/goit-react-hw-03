@@ -4,24 +4,9 @@
     border-radius: 10px;
     width: 400px;
     margin: 20px auto;
-}
-
-.contact ul  {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.contact li {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+        justify-content: space-between;
+        align-items: center;
 }
 
 .contact button {
